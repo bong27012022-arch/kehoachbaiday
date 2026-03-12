@@ -37,10 +37,10 @@ const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose, onSave, init
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden animate-fadeIn">
+      <div className="flex flex-col bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden animate-fadeIn">
 
         {/* Header */}
-        <div className="bg-gradient-to-r from-teal-600 to-emerald-600 p-6 text-white">
+        <div className="bg-gradient-to-r from-teal-600 to-emerald-600 p-6 text-white shrink-0">
           <h2 className="text-2xl font-bold flex items-center gap-2">
             <span className="material-symbols-outlined">settings_suggest</span>
             Cấu hình AI Assistant
@@ -48,7 +48,7 @@ const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose, onSave, init
           <p className="text-teal-100 mt-1 opacity-90">Thiết lập kết nối để sử dụng tính năng tạo giáo án</p>
         </div>
 
-        <div className="p-6 md:p-8 space-y-8">
+        <div className="p-6 md:p-8 space-y-8 overflow-y-auto flex-1">
 
           {/* API Key Section */}
           <div className="space-y-4">
@@ -90,8 +90,8 @@ const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose, onSave, init
                   key={model.id}
                   onClick={() => setSelectedModel(model.id)}
                   className={`p-4 rounded-xl border-2 cursor-pointer transition-all flex items-center gap-4 ${selectedModel === model.id
-                      ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20'
-                      : 'border-slate-200 dark:border-slate-700 hover:border-teal-200'
+                    ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20'
+                    : 'border-slate-200 dark:border-slate-700 hover:border-teal-200'
                     }`}
                 >
                   <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${selectedModel === model.id ? 'border-teal-500' : 'border-slate-300'
@@ -113,7 +113,7 @@ const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose, onSave, init
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-3 bg-slate-50 dark:bg-slate-800/50">
+        <div className="p-6 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-3 bg-slate-50 dark:bg-slate-800/50 shrink-0">
           {initialApiKey && (
             <button
               onClick={onClose}
